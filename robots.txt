@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
+# Indica o tempo entre acessos dos bots (opcional)
+Crawl-delay: 10
+
+# Sitemap (ajuda os motores de busca a entender melhor a estrutura do seu site)
 Sitemap: https://quickhookup.club/sitemap.xml
