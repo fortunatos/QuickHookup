@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quickhookup.club/sitemap.xml
