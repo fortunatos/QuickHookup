@@ -16,7 +16,7 @@
       font-family: 'Poppins', Arial, sans-serif;
       height: 100%;
       width: 100%;
-      background: linear-gradient(135deg, #FF416C, #FF4B2B);
+      background-color: #121212; /* Dark solid background */
       color: #fff;
       display: flex;
       justify-content: center;
@@ -25,36 +25,24 @@
     .content {
       text-align: center;
       max-width: 600px;
-      background: rgba(255, 255, 255, 0.1);
+      background: #1f1f1f; /* Slightly lighter background for contrast */
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Stronger shadow for depth */
     }
     h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       font-weight: bold;
       margin-bottom: 20px;
       text-transform: uppercase;
-      color: #FFE53B;
-      background: linear-gradient(45deg, #FF9A8B, #FF6A88, #FF99AC);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 1.5s infinite alternate;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 0, 150, 0.4);
-    }
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 0, 150, 0.4);
-      }
-      to {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 0, 150, 0.6), 0 0 40px rgba(255, 0, 150, 0.8);
-      }
+      color: #FF3366; /* Vibrant solid pink color */
+      text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* Strong shadow for text */
     }
     p {
       font-size: 1.2em;
       line-height: 1.8;
       margin-bottom: 30px;
+      color: #d3d3d3; /* Softer white for readability */
     }
     a.button {
       display: inline-block;
@@ -62,19 +50,20 @@
       font-size: 1.5em;
       font-weight: bold;
       color: #fff;
-      background: linear-gradient(45deg, #FFC371, #FF5F6D);
+      background-color: #FF3366; /* Solid pink button */
       padding: 15px 30px;
       border-radius: 30px;
-      box-shadow: 0 5px 20px rgba(255, 95, 109, 0.6);
+      box-shadow: 0 5px 15px rgba(255, 51, 102, 0.6); /* Stronger shadow for button */
       transition: all 0.3s ease-in-out;
     }
     a.button:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(255, 95, 109, 0.8);
+      background-color: #E6004C; /* Slightly darker pink on hover */
+      box-shadow: 0 8px 20px rgba(255, 51, 102, 0.8);
     }
     @media (max-width: 768px) {
       h1 {
-        font-size: 2.4em;
+        font-size: 2.8em;
       }
       p {
         font-size: 1em;
