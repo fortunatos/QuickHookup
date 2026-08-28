@@ -185,20 +185,35 @@ function abrirGo(event) {
   const url = "https://activemembers.site/go.html";
   const ua = navigator.userAgent || "";
 
+  // Android
   if (/Android/i.test(ua)) {
-    const chromeUrl =
-      "googlechrome://navigate?url=" + encodeURIComponent(url);
 
-    window.location.href = chromeUrl;
+    // 1. Tenta abrir diretamente no Chrome
+    const chromeIntent =
+      "intent://activemembers.site/go.html" +
+      "#Intent;" +
+      "scheme=https;" +
+      "package=com.android.chrome;" +
+      "action=android.intent.action.VIEW;" +
+      "S.browser_fallback_url=" +
+      encodeURIComponent(url) +
+      ";end";
 
+    // 2. Abre em nova janela para tentar escapar do navegador interno do X
+    const novaJanela = window.open(chromeIntent, "_blank");
+
+    // 3. Fallback
     setTimeout(function () {
-      window.location.href = url;
-    }, 1000);
+      if (!novaJanela || novaJanela.closed) {
+        window.location.href = url;
+      }
+    }, 1200);
 
     return;
   }
 
-  window.location.href = url;
+  // iPhone, iPad e computador
+  window.open(url, "_blank");
 }
 
     
