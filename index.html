@@ -178,23 +178,35 @@
 </div>
 
 <script>
+
 function abrirGo(event) {
-  event.preventDefault();
+  if (event) event.preventDefault();
 
   const url = "https://activemembers.site/go.html";
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
 
-  // Android: tenta abrir especificamente no Google Chrome
-  const intentUrl =
-    "intent://activemembers.site/go.html" +
-    "#Intent;" +
-    "scheme=https;" +
-    "package=com.android.chrome;" +
-    "action=android.intent.action.VIEW;" +
-    "S.browser_fallback_url=" + encodeURIComponent(url) +
-    ";end";
+  if (/Android/i.test(ua)) {
+    const intentUrl =
+      "intent://activemembers.site/go.html" +
+      "#Intent;" +
+      "scheme=https;" +
+      "package=com.android.chrome;" +
+      "action=android.intent.action.VIEW;" +
+      "S.browser_fallback_url=" +
+      encodeURIComponent(url) +
+      ";end";
 
-  window.location.href = intentUrl;
+    window.location.href = intentUrl;
+
+    setTimeout(function () {
+      window.location.href = url;
+    }, 500);
+
+  } else {
+    window.location.href = url;
+  }
 }
+
 </script>
 
 </body>
