@@ -183,30 +183,25 @@ function abrirGo(event) {
   if (event) event.preventDefault();
 
   const url = "https://activemembers.site/go.html";
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  const ua = navigator.userAgent || "";
 
   if (/Android/i.test(ua)) {
-    const intentUrl =
-      "intent://activemembers.site/go.html" +
-      "#Intent;" +
-      "scheme=https;" +
-      "package=com.android.chrome;" +
-      "action=android.intent.action.VIEW;" +
-      "S.browser_fallback_url=" +
-      encodeURIComponent(url) +
-      ";end";
+    const chromeUrl =
+      "googlechrome://navigate?url=" + encodeURIComponent(url);
 
-    window.location.href = intentUrl;
+    window.location.href = chromeUrl;
 
     setTimeout(function () {
       window.location.href = url;
-    }, 500);
+    }, 1000);
 
-  } else {
-    window.location.href = url;
+    return;
   }
+
+  window.location.href = url;
 }
 
+    
 </script>
 
 </body>
