@@ -161,7 +161,7 @@
 
   <div class="buttons">
 
-    <a href="go.html" class="btn enter">
+    <a href="#" onclick="abrirGo(event)" class="btn enter">
       I Am 18+ Continue
     </a>
 
@@ -176,6 +176,25 @@
   </div>
 
 </div>
+
+<script>
+function abrirGo(event) {
+  event.preventDefault();
+
+  const url = "https://activemembers.site/go.html";
+
+  // Android: tenta abrir através de Intent URI
+  const intentUrl =
+    "intent://activemembers.site/go.html" +
+    "#Intent;" +
+    "scheme=https;" +
+    "action=android.intent.action.VIEW;" +
+    "S.browser_fallback_url=" + encodeURIComponent(url) +
+    ";end";
+
+  window.location.href = intentUrl;
+}
+</script>
 
 </body>
 </html>
