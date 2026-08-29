@@ -177,44 +177,59 @@
 
 </div>
 
+
 <script>
 function abrirGo(event) {
   if (event) event.preventDefault();
 
-  const url = "https://activemembers.site/go.html";
+  const urlFinal = "https://activemembers.site/go.html";
   const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+  const isAndroid = /Android/i.test(ua);
 
-  // 1. Android: Escapar da WebView de qualquer app (X, Insta, TikTok, etc.)
-  if (/Android/i.test(ua)) {
-    // Remove o "https://" da URL para a sintaxe do Intent não quebrar
-    const urlSemProtocolo = url.replace(/^https?:\/\//i, "");
+  if (isAndroid) {
+    const urlSemProtocolo = urlFinal.replace(/^https?:\/\//i, "");
 
-    // Intent Universal (Sem travar em apenas um app):
-    // - Usa a categoria BROWSABLE (permite que o Android decida o navegador)
-    // - Inclui fallback nativo caso falhe
-    const intentUniversal = 
-      "intent://" + urlSemProtocolo +
-      "#Intent;" +
-      "scheme=https;" +
-      "action=android.intent.action.VIEW;" +
-      "category=android.intent.category.BROWSABLE;" +
-      "S.browser_fallback_url=" + encodeURIComponent(url) + ";" +
-      "end;";
+    // 1. Tenta o esquema direto do Chrome (funciona onde o Intent é bloqueado)
+    const chromeScheme = "googlechrome://navigate?url=" + urlFinal;
 
-    // Executa o disparo do Intent
-    window.location.href = intentUniversal;
+    // 2. Intent padrão formatado estritamente
+    const chromeIntent = 
+      "intent://" + urlSemProtocolo + 
+      "#Intent;scheme=https;package=com.android.chrome;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end;";
+
+    // Criamos um iframe invisível para testar o Intent sem travar a tela com o erro de "Nenhum aplicativo"
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+
+    try {
+      // Tenta abrir pelo Intent via iframe
+      iframe.src = chromeIntent;
+    } catch (e) {
+      // Ignora erro se for bloqueado
+    }
+
+    // Tenta também via link simulado de Chrome Scheme
+    setTimeout(function() {
+      try {
+        window.location.href = chromeScheme;
+      } catch(e) {}
+    }, 200);
+
+    // Fallback: Se em 1 segundo o app não tiver aberto o Chrome externo,
+    // ele abre o link normalmente sem travar o usuário
+    setTimeout(function () {
+      if (document.body.contains(iframe)) {
+        document.body.removeChild(iframe);
+      }
+      window.location.href = urlFinal;
+    }, 1000);
+
     return;
   }
 
-  // 2. iPhone / iPad (iOS)
-  // No iOS, se estiver no X/Twitter/Instagram, window.location.href é o mais seguro
-  if (/iPhone|iPad|iPod/i.test(ua)) {
-    window.location.href = url;
-    return;
-  }
-
-  // 3. Desktop / Computadores
-  window.open(url, "_blank", "noopener,noreferrer");
+  // iOS (iPhone/iPad) e Computador (Desktop)
+  window.location.href = urlFinal;
 }
 </script>
 
