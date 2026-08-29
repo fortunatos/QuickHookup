@@ -178,45 +178,44 @@
 </div>
 
 <script>
-
 function abrirGo(event) {
   if (event) event.preventDefault();
 
   const url = "https://activemembers.site/go.html";
-  const ua = navigator.userAgent || "";
+  const ua = navigator.userAgent || navigator.vendor || window.opera || "";
 
-  // Android
+  // 1. Android: Escapar da WebView de qualquer app (X, Insta, TikTok, etc.)
   if (/Android/i.test(ua)) {
+    // Remove o "https://" da URL para a sintaxe do Intent não quebrar
+    const urlSemProtocolo = url.replace(/^https?:\/\//i, "");
 
-    // 1. Tenta abrir diretamente no Chrome
-    const chromeIntent =
-      "intent://activemembers.site/go.html" +
+    // Intent Universal (Sem travar em apenas um app):
+    // - Usa a categoria BROWSABLE (permite que o Android decida o navegador)
+    // - Inclui fallback nativo caso falhe
+    const intentUniversal = 
+      "intent://" + urlSemProtocolo +
       "#Intent;" +
       "scheme=https;" +
-      "package=com.android.chrome;" +
       "action=android.intent.action.VIEW;" +
-      "S.browser_fallback_url=" +
-      encodeURIComponent(url) +
-      ";end";
+      "category=android.intent.category.BROWSABLE;" +
+      "S.browser_fallback_url=" + encodeURIComponent(url) + ";" +
+      "end;";
 
-    // 2. Abre em nova janela para tentar escapar do navegador interno do X
-    const novaJanela = window.open(chromeIntent, "_blank");
-
-    // 3. Fallback
-    setTimeout(function () {
-      if (!novaJanela || novaJanela.closed) {
-        window.location.href = url;
-      }
-    }, 1200);
-
+    // Executa o disparo do Intent
+    window.location.href = intentUniversal;
     return;
   }
 
-  // iPhone, iPad e computador
-  window.open(url, "_blank");
+  // 2. iPhone / iPad (iOS)
+  // No iOS, se estiver no X/Twitter/Instagram, window.location.href é o mais seguro
+  if (/iPhone|iPad|iPod/i.test(ua)) {
+    window.location.href = url;
+    return;
+  }
+
+  // 3. Desktop / Computadores
+  window.open(url, "_blank", "noopener,noreferrer");
 }
-
-
 </script>
 
 </body>
