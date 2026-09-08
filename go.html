@@ -1,84 +1,216 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:version="2" class="v2" expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
-  <head>
-    <title>Go!!</title>
+<html b:version="2"
+      class="v2"
+      expr:dir="data:blog.languageDirection"
+      expr:lang="data:blog.locale"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://www.google.com/2005/gml/b"
+      xmlns:data="http://www.google.com/2005/gml/data"
+      xmlns:expr="http://www.google.com/2005/gml/expr">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+<head>
 
+  <title>Go!!</title>
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=0"/>
 
   <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
     body {
       margin: 0;
-      font-family: sans-serif;
+
+      font-family: Arial, sans-serif;
+
       background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+
+      width: 100%;
+
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      overflow-x: hidden;
+      overflow-y: auto;
     }
+
+    /* Container central */
+    .page {
+      width: 100%;
+      min-width: 0;
+
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      display: grid;
+      place-items: center;
+
+      padding: 20px;
+    }
+
     .loading {
+      width: 100%;
       text-align: center;
     }
+
     .spinner {
       border: 6px solid #f3f3f3;
       border-top: 6px solid #333;
+
       border-radius: 50%;
+
       width: 50px;
       height: 50px;
+
       margin: 20px auto;
+
       animation: spin 1s linear infinite;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+
+    .loading p {
+      margin: 0;
+
+      font-size: 16px;
+      line-height: 1.5;
+
+      color: #333;
     }
+
+    @keyframes spin {
+
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+
+    }
+
+    /* Celular */
+    @media (max-width: 480px) {
+
+      .page {
+        padding: 15px;
+      }
+
+      .loading {
+        width: 100%;
+      }
+
+    }
+
   </style>
 
-<!-- Tracking -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RK11EWEJE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-4RK11EWEJE');
+  <!-- Google Analytics -->
+  <script async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4RK11EWEJE">
   </script>
 
+  <script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js" type="text/javascript"></script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-4RK11EWEJE');
+
+  </script>
+
+  <script
+    src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"
+    type="text/javascript">
+  </script>
 
 </head>
 
 <body>
 
+  <div class="page">
 
-  <div id="conteudo" class="loading">
-    <div class="spinner"></div>
-    <p>Adult Loading, please wait...</p>
+    <div id="conteudo" class="loading">
+
+      <div class="spinner"></div>
+
+      <p>
+        Adult Loading, please wait...
+      </p>
+
+    </div>
+
   </div>
 
 
   <script type="text/javascript">
 
-      jQuery(document).ready(function(){
-       if (document.cookie.indexOf('visited=true') == -1) {
-        var fifteenDays = 1000*60*60*24*60;
-        var expires = new Date((new Date()).valueOf() + fifteenDays);
-        document.cookie = "visited=true;expires=" + expires.toUTCString();
+    jQuery(document).ready(function () {
 
-        setTimeout('window.location.href = "https://t.frtayb.com/133199/223/0?po=6533&aff_sub5=SF_006OG000004lmDN"', 500);
+      if (document.cookie.indexOf('visited=true') === -1) {
 
-        }else{
-        fifteenDays = 3000;
-        expires = new Date((new Date()).valueOf() + fifteenDays);
-        document.cookie = "visited=true;expires=" + expires.toUTCString();
-        
-        setTimeout('window.location.href = "https://t.frtayb.com/133199/223/28202?po=6533&aff_sub5=SF_006OG000004lmDN"', 500);
+        var fifteenDays = 1000 * 60 * 60 * 24 * 60;
 
-        }
-        });
+        var expires = new Date(
+          (new Date()).valueOf() + fifteenDays
+        );
 
-    </script>
+        document.cookie =
+          "visited=true;expires=" +
+          expires.toUTCString();
+
+        setTimeout(function () {
+
+          window.location.href =
+            "https://t.frtayb.com/133199/223/0?po=6533&aff_sub5=SF_006OG000004lmDN";
+
+        }, 500);
+
+      } else {
+
+        var shortTime = 3000;
+
+        var expires = new Date(
+          (new Date()).valueOf() + shortTime
+        );
+
+        document.cookie =
+          "visited=true;expires=" +
+          expires.toUTCString();
+
+        setTimeout(function () {
+
+          window.location.href =
+            "https://t.frtayb.com/133199/223/28202?po=6533&aff_sub5=SF_006OG000004lmDN";
+
+        }, 500);
+
+      }
+
+    });
+
+  </script>
 
 </body>
+
 </html>
