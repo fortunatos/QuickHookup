@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Age Verification</title>
 
@@ -52,8 +52,14 @@
       box-sizing: border-box;
     }
 
-    html {
+    html,
+    body {
       width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    html {
       min-height: 100%;
     }
 
@@ -62,25 +68,36 @@
       background: #0b0b0b;
       color: white;
 
-      width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 20px;
-
-      /* Evita problemas de largura no navegador interno */
       overflow-x: hidden;
       overflow-y: auto;
+    }
+
+    /* PAGE
+       Não usamos flex diretamente no body.
+       Isso evita o deslocamento no navegador interno do X.
+    */
+    .page {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      display: grid;
+      place-items: center;
+
+      padding: 20px;
     }
 
     /* BACKGROUND */
     .bg {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
 
       width: 100%;
       height: 100%;
@@ -99,14 +116,14 @@
         #0b0b0b;
 
       z-index: -1;
+      pointer-events: none;
     }
 
     /* CARD */
     .card {
       width: 100%;
       max-width: 420px;
-
-      margin: auto;
+      min-width: 0;
 
       background: #121212;
 
@@ -117,8 +134,7 @@
 
       text-align: center;
 
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, .5);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
     }
 
     /* ICON */
@@ -146,12 +162,13 @@
       margin-bottom: 30px;
     }
 
-    /* BUTTONS */
+    /* BUTTON CONTAINER */
     .buttons {
+      width: 100%;
+      min-width: 0;
+
       display: flex;
       flex-direction: column;
-
-      width: 100%;
 
       gap: 15px;
     }
@@ -161,27 +178,27 @@
       display: block;
 
       width: 100%;
-
-      text-decoration: none;
+      min-width: 0;
 
       padding: 16px;
 
       border-radius: 14px;
 
-      font-weight: bold;
+      text-decoration: none;
       text-align: center;
+
+      font-weight: bold;
 
       transition: .25s ease;
     }
 
     /* ENTER */
     .enter {
-      background:
-        linear-gradient(
-          90deg,
-          #ff4d67,
-          #ff758c
-        );
+      background: linear-gradient(
+        90deg,
+        #ff4d67,
+        #ff758c
+      );
 
       color: white;
 
@@ -213,16 +230,15 @@
       line-height: 1.5;
     }
 
-    /* MOBILE */
+    /* CELULAR */
     @media (max-width: 480px) {
 
-      body {
+      .page {
         padding: 15px;
       }
 
       .card {
         padding: 32px 22px;
-
         border-radius: 20px;
       }
 
@@ -244,38 +260,42 @@
 
   <div class="bg"></div>
 
-  <main class="card">
+  <div class="page">
 
-    <div class="icon">
-      🔞
-    </div>
+    <main class="card">
 
-    <h1>
-      Age Verification
-    </h1>
+      <div class="icon">
+        🔞
+      </div>
 
-    <p>
-      You must be 18 years or older to access this website.
-      Please confirm your age before continuing.
-    </p>
+      <h1>
+        Age Verification
+      </h1>
 
-    <div class="buttons">
+      <p>
+        You must be 18 years or older to access this website.
+        Please confirm your age before continuing.
+      </p>
 
-      <a href="go.html" class="btn enter">
-        I Am 18+ Continue
-      </a>
+      <div class="buttons">
 
-      <a href="go.html" class="btn exit">
-        Exit
-      </a>
+        <a href="go.html" class="btn enter">
+          I Am 18+ Continue
+        </a>
 
-    </div>
+        <a href="go.html" class="btn exit">
+          Exit
+        </a>
 
-    <div class="footer">
-      By continuing, you confirm that you meet the legal age requirements.
-    </div>
+      </div>
 
-  </main>
+      <div class="footer">
+        By continuing, you confirm that you meet the legal age requirements.
+      </div>
+
+    </main>
+
+  </div>
 
 </body>
 
