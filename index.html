@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Age Verification</title>
 
-  <!-- twitter card details -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:site" content="@CurvyMoms"/>
-  <meta name="twitter:url" content="https://activemembers.site/"/>
-  <meta name="twitter:title" content="My page is on free Right Now!!"/>
-  <meta name="twitter:description" content="@"/>
-  <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpm-Nss3Tv9rTb8VpJtOW96EL7qYOgi80pcTYJ6eExVMy4BDFp004Rewjc2w8xJFb4D-e3Ov8kDRBrCQsH3UtUmRQGpbyu88QpeBY-Hi9-vCMSCSNRgXcqATpI4ITydQZ4tu_8PGJ7TalJ7pD_vpk031Uafg3B2wwRL6BvJRaMOAhO5g0uJ9CycuEI8yAy/s1568/1000169109.jpg"/>
-  <!-- end twitter card details -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@CurvyMoms">
+  <meta name="twitter:url" content="https://activemembers.site/">
+  <meta name="twitter:title" content="My page is on free Right Now!!">
+  <meta name="twitter:description" content="@">
+  <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpm-Nss3Tv9rTb8VpJtOW96EL7qYOgi80pcTYJ6eExVMy4BDFp004Rewjc2w8xJFb4D-e3Ov8kDRBrCQsH3UtUmRQGpbyu88QpeBY-Hi9-vCMSCSNRgXcqATpI4ITydQZ4tu_8PGJ7TalJ7pD_vpk031Uafg3B2wwRL6BvJRaMOAhO5g0uJ9CycuEI8yAy/s1568/1000169109.jpg">
 
-  <script type="text/javascript">
+  <!-- Hash Title -->
+  <script>
     var hash = window.location.hash;
 
     if (hash.length > 0) {
@@ -28,154 +29,254 @@
     }
   </script>
 
-<!-- Tracking -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RK11EWEJE"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
     gtag('config', 'G-4RK11EWEJE');
   </script>
 
-
   <style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body{
-      font-family:Arial,sans-serif;
-      background:#0b0b0b;
-      color:white;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:100vh;
-      overflow:hidden;
-      padding:20px;
+    html {
+      width: 100%;
+      min-height: 100%;
     }
 
-    .bg{
-      position:fixed;
-      inset:0;
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      /* Evita problemas de largura no navegador interno */
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* BACKGROUND */
+    .bg {
+      position: fixed;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
       background:
-      radial-gradient(circle at top left,#ff4d6720,transparent 30%),
-      radial-gradient(circle at bottom right,#7c3aed20,transparent 30%),
-      #0b0b0b;
-      z-index:-1;
+        radial-gradient(
+          circle at top left,
+          #ff4d6720,
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          #7c3aed20,
+          transparent 30%
+        ),
+        #0b0b0b;
+
+      z-index: -1;
     }
 
-    .card{
-      width:100%;
-      max-width:420px;
-      background:#121212;
-      border:1px solid #262626;
-      border-radius:24px;
-      padding:40px 30px;
-      text-align:center;
-      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    /* CARD */
+    .card {
+      width: 100%;
+      max-width: 420px;
+
+      margin: auto;
+
+      background: #121212;
+
+      border: 1px solid #262626;
+      border-radius: 24px;
+
+      padding: 40px 30px;
+
+      text-align: center;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, .5);
     }
 
-    .icon{
-      font-size:58px;
-      margin-bottom:20px;
+    /* ICON */
+    .icon {
+      font-size: 58px;
+      line-height: 1;
+
+      margin-bottom: 20px;
     }
 
-    h1{
-      font-size:2rem;
-      margin-bottom:15px;
+    /* TITLE */
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+
+      margin-bottom: 15px;
     }
 
-    p{
-      color:#b3b3b3;
-      line-height:1.7;
-      margin-bottom:30px;
+    /* TEXT */
+    p {
+      color: #b3b3b3;
+
+      line-height: 1.7;
+
+      margin-bottom: 30px;
     }
 
-    .buttons{
-      display:flex;
-      flex-direction:column;
-      gap:15px;
+    /* BUTTONS */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+
+      gap: 15px;
     }
 
-    .btn{
-      text-decoration:none;
-      padding:16px;
-      border-radius:14px;
-      font-weight:bold;
-      transition:.25s ease;
+    /* BUTTON */
+    .btn {
+      display: block;
+
+      width: 100%;
+
+      text-decoration: none;
+
+      padding: 16px;
+
+      border-radius: 14px;
+
+      font-weight: bold;
+      text-align: center;
+
+      transition: .25s ease;
     }
 
-    .enter{
-      background:linear-gradient(90deg,#ff4d67,#ff758c);
-      color:white;
-      box-shadow:0 10px 30px rgba(255,77,103,.25);
+    /* ENTER */
+    .enter {
+      background:
+        linear-gradient(
+          90deg,
+          #ff4d67,
+          #ff758c
+        );
+
+      color: white;
+
+      box-shadow:
+        0 10px 30px rgba(255, 77, 103, .25);
     }
 
-    .enter:hover{
-      transform:translateY(-2px);
+    .enter:hover {
+      transform: translateY(-2px);
     }
 
-    .exit{
-      background:#1d1d1d;
-      border:1px solid #333;
-      color:#ccc;
+    /* EXIT */
+    .exit {
+      background: #1d1d1d;
+
+      border: 1px solid #333;
+
+      color: #ccc;
     }
 
-    .footer{
-      margin-top:25px;
-      color:#666;
-      font-size:.85rem;
+    /* FOOTER */
+    .footer {
+      margin-top: 25px;
+
+      color: #666;
+
+      font-size: .85rem;
+
+      line-height: 1.5;
     }
 
-    @media(max-width:480px){
+    /* MOBILE */
+    @media (max-width: 480px) {
 
-      h1{
-        font-size:1.7rem;
+      body {
+        padding: 15px;
+      }
+
+      .card {
+        padding: 32px 22px;
+
+        border-radius: 20px;
+      }
+
+      .icon {
+        font-size: 52px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
       }
 
     }
 
   </style>
+
 </head>
 
 <body>
 
-<div class="bg"></div>
+  <div class="bg"></div>
 
-<div class="card">
+  <main class="card">
 
-  <div class="icon">
-    🔞
-  </div>
+    <div class="icon">
+      🔞
+    </div>
 
-  <h1>Age Verification</h1>
+    <h1>
+      Age Verification
+    </h1>
 
-  <p>
-    You must be 18 years or older to access this website.
-    Please confirm your age before continuing.
-  </p>
+    <p>
+      You must be 18 years or older to access this website.
+      Please confirm your age before continuing.
+    </p>
 
-  <div class="buttons">
+    <div class="buttons">
 
-<a href="go.html" class="btn enter">
-      I Am 18+ Continue
-    </a>
+      <a href="go.html" class="btn enter">
+        I Am 18+ Continue
+      </a>
 
-    <a href="go.html" class="btn exit">
-      Exit
-    </a>
+      <a href="go.html" class="btn exit">
+        Exit
+      </a>
 
-  </div>
+    </div>
 
-  <div class="footer">
-    By continuing, you confirm that you meet the legal age requirements.
-  </div>
+    <div class="footer">
+      By continuing, you confirm that you meet the legal age requirements.
+    </div>
 
-</div>
+  </main>
 
 </body>
+
 </html>
